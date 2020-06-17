@@ -21,28 +21,21 @@ public class ProductArrayPuzzle {
 		int right[]=new int[n];
 		int prod[]=new int[n];
 		left[0] = 1; 
-		  
-        /* Rightmost most element of right  
-array is always 1 */
         right[n - 1] = 1; 
         int i,j;
-        /* Construct the left array */
-        for (i = 1; i < n; i++) 
-            left[i] = arr[i - 1] * left[i - 1]; 
-  
-        /* Construct the right array */
-        for (j = n - 2; j >= 0; j--) 
+        for (i = 1; i < n; i++) { 
+            left[i] = arr[i - 1] * left[i - 1];
+        }
+        for (j = n - 2; j >= 0; j--) {
             right[j] = arr[j + 1] * right[j + 1]; 
-  
-        /* Construct the product array using  
-        left[] and right[] */
-        for (i = 0; i < n; i++) 
-            prod[i] = left[i] * right[i]; 
-  
-        /* print the constructed prod array */
-        for (i = 0; i < n; i++) 
-            System.out.print(prod[i] + " "); 
-  
-        return;	}
+		}
+        for (i = 0; i < n; i++) {
+            prod[i] = left[i] * right[i];   
+		}
+        for (i = 0; i < n; i++) {
+            System.out.print(prod[i] + " ");
+        }
+        return;	
+	}
 
 }
